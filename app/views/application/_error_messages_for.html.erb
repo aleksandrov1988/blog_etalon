@@ -1,0 +1,14 @@
+<% if msgs.present? %>
+<div class="alert alert-danger">
+  <h4 class="alert-heading">
+    При сохранении произошли ошибки
+  </h4>
+  <ol>
+    <% msgs.each do |msg| %>
+    <li>
+      <%= msg %>
+    </li>
+    <%end%>
+  </ol>  
+</div>
+<% end %>

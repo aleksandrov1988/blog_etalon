@@ -1,0 +1,23 @@
+<h1><%= t('.title') %></h1>
+
+<% @users.each do |user| %>
+<div class="card my-2">
+  <div class="card-body">
+    <h4>
+      <%=link_to user.login, user %>
+      <% if user.admin? %>
+      <span class="badge badge-danger">
+        <%= User.human_attribute_name(:admin) %>
+      </span>
+      <% end %>
+    </h4>
+    <div>
+      <b><%= User.human_attribute_name(:name) %>:</b>
+      <%= user.name %>
+    </div>
+    <%= link_to t('users.edit.btn'), edit_user_path(user), class: 'card-link' %>
+    <%= link_to t('users.destroy.btn'), user, class: 'card-link text-danger', data: {method: :delete, confirm: t('helpers.sure')} %>
+  </div>
+</div>
+<% end %>
+<%= paginate @users %>

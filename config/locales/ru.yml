@@ -1,0 +1,109 @@
+ru:
+  app:
+    name: Блоги
+  activerecord:
+    models:
+      comment: Комментарий
+      post: Пост
+      user: Пользователь
+    attributes:
+      comment:
+        post: Пост
+        post_id: Пост
+        user: Автор
+        user_id: Автор
+        body: Текст комментария
+      post:
+        title: Заголовок
+        body: Текст
+        views_count: Количество просмотров
+        user: Автор
+        user_id: Автор
+        updated_at: Последнее изменение
+      user:
+        name: Имя
+        login: Логин
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        admin: Администратор
+  comments:
+    index:
+      title: Комментарии
+      not_found: Комментарии не найдены
+    form:
+      submit: Отправить
+    create:
+      success: Комментарий добавлен
+    edit:
+      btn: Редактировать
+      title: Редактирование комментария
+    update:
+      success: Комментарий изменен
+    destroy:
+      success: Комментарий удален
+      failure: Не удалось удалить комментарий      
+  sessions:
+    new:
+      btn: Войти
+      title: Авторизация
+      submit: Войти
+    create:
+      success: Вход выполнен
+      failure: Неверное имя пользователя или пароль
+    destroy:
+      btn: Выйти
+      success: Выход выполнен
+  posts:
+    index:
+      btn: Посты
+      title: Посты
+    new:
+      btn: Новый пост
+      title: Добавление поста
+    create:
+      success: Пост добавлен
+    edit:
+      btn: Редактировать
+      title: Редактирование поста
+    update:
+      success: Пост изменен
+    destroy:
+      btn: Удалить
+      success: Пост удален
+      failure: Не удалось удалить пост
+    show:
+      btn: Подробнее »
+  users:
+    index:
+      btn: Пользователи
+      title: Пользователи
+    new:
+      btn: Зарегистрироваться
+      title: Регистрация
+    form:
+      submit: Зарегистрироваться
+    create:
+      success: Пользователь зарегистрирован
+    edit:
+      btn: Редактировать профиль
+      title: Редактирования профиля пользователя
+    update:
+      success: Профил пользователя изменен
+    destroy:
+      btn: Удалить пользователя
+      success: Пользователь удален
+      failure: Не удалось удалить пользователя
+  helpers:
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+    sure: Вы уверены?
+    ago: назад
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …

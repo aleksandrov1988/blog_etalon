@@ -1,0 +1,6 @@
+<h1><%= t('.title') %></h1>
+<div class="my-2">
+  <%= link_to t('posts.new.btn'), new_post_path, class: 'btn btn-primary' %>
+</div>
+<%= render @posts %>
+<%= paginate @posts %>

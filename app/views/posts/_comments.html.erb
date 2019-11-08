@@ -1,0 +1,9 @@
+<h5 class='pt-2'><%= t('comments.index.title') %></h5>
+<% if comments.blank? %>
+<div class="alert alert-info">
+  <%= t('comments.index.not_found') %>
+</div>
+<% else %>
+<%= render comments %>
+<% end %>
+<%= render 'comments/form', comment: @comment %>

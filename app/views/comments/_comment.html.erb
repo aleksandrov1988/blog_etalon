@@ -1,0 +1,15 @@
+<div class="media border my-2 p-2">
+  <div class="media-body">
+    <h5 class='my-0'>
+      <%= comment.user.name %>
+    </h5>
+    <%= comment.body %>
+    <div class="text-sm text-muted">
+      <%= l comment.created_at, format: :short %>
+      <% if comment.edit_by?(@current_user) %>
+      <%= link_to content_tag(:i, nil, class: 'fa fa-edit'), edit_comment_path(comment), class: 'ml-1', title: t('comments.edit.btn') %>
+      <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o'), comment, class: 'ml-1 text-danger', title: t('comments.destroy.btn'), data: {method: :delete, confirm: t('helpers.sure')} %>
+      <% end %>
+    </div>
+  </div>
+</div>

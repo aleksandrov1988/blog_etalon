@@ -1,0 +1,21 @@
+<div class="card my-2">
+  <h4 class="card-header">
+    <%= post.title %>
+  </h4>
+  <div class="card-body">
+    <%= simple_format post.body %>
+    <%= link_to t('posts.show.btn'), post, class: 'card-link' %>
+    <% if post.edit_by?(@current_user) %>
+        <%= link_to t('posts.edit.btn'), edit_post_path(post), class: 'card-link' %>
+        <%= link_to t('posts.destroy.btn'), post, class: 'card-link text-danger', data: {method: :delete, confirm: t('helpers.sure')} %>
+    <% end %>
+  </div>
+  <div class="card-footer">
+    <ul class="list-inline mb-0">
+      <li class="list-inline-item text-muted"><%= l(post.created_at, format: :long) %></li>
+      <li class="list-inline-item">
+        <%= link_to post.user.name, post.user, class: 'text-muted' %>
+      </li>
+    </ul>
+  </div>
+</div>

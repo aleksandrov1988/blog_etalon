@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to t('posts.index.btn'), posts_path, class: 'nav-link' %>
+      </li>
+      <% if @current_user&.admin? %>
+      <li class="nav-item">
+        <%= link_to t('users.index.btn'), users_path, class: 'nav-link' %>
+      </li>
+      <% end %>
+    </ul>
+    <ul class="navbar-nav">
+      <% if @current_user %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= @current_user.login %>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
+          <%= link_to t('users.edit.btn'), edit_user_path(@current_user), class: 'dropdown-item' %>
+          <%= link_to t('sessions.destroy.btn'), logout_path, class: 'dropdown-item' %>
+        </div>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to t('users.new.btn'), new_user_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('sessions.new.btn'), login_path, class: 'nav-link' %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

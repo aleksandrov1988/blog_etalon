@@ -1,0 +1,25 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to t('posts.index.btn'), posts_path %>
+    </li>
+    <li class="breadcrumb-item">
+      <%= link_to @post.user.name, @post.user %>
+    </li>
+    <li class="breadcrumb-item active">
+      <%= @post.human %>
+    </li>
+  </ol>
+</nav>
+<%= render @post  %>
+<%= render 'posts/comments', comments: @post.comments %>
+<ul class="text-sm text-muted mt-4 list-unstyled">
+  <li>
+    <%= Post.human_attribute_name(:views_count) %>: <%= @post.views_count %>
+  </li>
+  <li>
+    <%= Post.human_attribute_name(:updated_at) %>
+    <%= distance_of_time_in_words_to_now @post.updated_at %>
+    <%= t('helpers.ago') %>
+  </li>
+</ul>

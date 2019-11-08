@@ -1,0 +1,18 @@
+<%= form_with(model: post, local: true) do |form| %>
+<%= error_messages_for post %>
+
+
+<div class="form-group">
+  <%= form.label :title %>
+  <%= form.text_field :title, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= form.label :body %>
+  <%= form.text_area :body, class: 'form-control' %>
+</div>
+
+<div class="actions">
+  <%= form.submit nil, class: 'btn btn-primary' %>
+</div>
+<% end %>

@@ -1,0 +1,11 @@
+<%= form_with(model: comment, local: true) do |form| %>
+<%= hidden_field_tag :post_id, comment.post_id %>
+<%= error_messages_for comment %>
+<div class="form-group">
+  <%= form.text_area :body, class: 'form-control', placeholder: Comment.human_attribute_name(:body), required: true %>
+</div>
+
+<div class="actions">
+  <%= form.submit t('.submit'), class: 'btn btn-primary' %>
+</div>
+<% end %>
