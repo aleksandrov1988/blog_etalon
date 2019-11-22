@@ -3,7 +3,7 @@
     <%= post.title %>
   </h4>
   <div class="card-body">
-    <%= simple_format post.body %>
+    <%== show_post_body post %>
     <%= link_to t('posts.show.btn'), post, class: 'card-link' %>
     <% if post.edit_by?(@current_user) %>
         <%= link_to t('posts.edit.btn'), edit_post_path(post), class: 'card-link' %>
