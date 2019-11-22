@@ -4,6 +4,7 @@ ru:
   activerecord:
     models:
       comment: Комментарий
+      like: Отметка «Мне нравится»
       post: Пост
       user: Пользователь
     attributes:
@@ -13,6 +14,11 @@ ru:
         user: Автор
         user_id: Автор
         body: Текст комментария
+      like:
+        post: Пост
+        post_id: Пост
+        user: Пользователь
+        user_id: Пользователь
       post:
         title: Заголовок
         body: Текст
@@ -41,7 +47,7 @@ ru:
       success: Комментарий изменен
     destroy:
       success: Комментарий удален
-      failure: Не удалось удалить комментарий      
+      failure: Не удалось удалить комментарий
   sessions:
     new:
       btn: Войти

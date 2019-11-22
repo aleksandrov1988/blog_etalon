@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :posts, -> { ordering }, dependent: :destroy
   has_many :comments, -> { ordering }, dependent: :destroy
+  has_many :likes, -> { ordering }, dependent: :destroy
 
   validates :name, length: {in: 2..100}
   validates :login, presence: true, length: {in: 2..100}, uniqueness: {case_sensetive: false}
