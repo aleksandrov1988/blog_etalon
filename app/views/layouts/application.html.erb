@@ -9,6 +9,25 @@
 
   <%= stylesheet_pack_tag 'stylesheets/application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <style media="screen">
+    <% if @current_user %>
+      <% if @current_user.color.present? %>
+      body{
+        color: <%= @current_user.color %>;
+      }
+      <% end %>
+      <% if @current_user.bg_color.present? %>
+      body{
+        background-color: <%= @current_user.color %>;
+      }
+      <% end %>
+      <% if @current_user.a_color.present? %>
+      a{
+        color: <%= @current_user.a_color %>;
+      }
+      <% end %>
+    <% end %>
+  </style>
 </head>
 
 <body>

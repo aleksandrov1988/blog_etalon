@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   validates :name, length: {in: 2..100}
   validates :login, presence: true, length: {in: 2..100}, uniqueness: {case_sensetive: false}
+  validates :color, format: {with: /\A#[0-9a-f]{6}\z/i}, allow_blank: true
+  validates :a_color, format: {with: /\A#[0-9a-f]{6}\z/i}, allow_blank: true
+  validates :bg_color, format: {with: /\A#[0-9a-f]{6}\z/i}, allow_blank: true
 
   scope :ordering, -> { order(:login) }
 
