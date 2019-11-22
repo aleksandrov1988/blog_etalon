@@ -1,9 +1,10 @@
 class Post < ApplicationRecord
+  has_many_attached :files
   belongs_to :user
   has_many :comments, -> { ordering }, dependent: :destroy
 
   scope :ordering, -> { order(created_at: :desc) }
-  scope :full, -> { includes(:user) }
+  scope :full, -> { includes(:user).with_attached_files }
 
   validates :title, presence: true, length: {in: 3..140}
   validates :body, presence: true, length: {minimum: 3}
@@ -14,5 +15,5 @@ class Post < ApplicationRecord
 
   def human
     "#{self.class.model_name.human} №#{id}"
-  end  
+  end
 end

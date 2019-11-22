@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :check_authentication, except: [:index, :show]
-  before_action :set_post, only: [:edit, :update, :destroy]
-  before_action :check_edit, only: [:edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy, :destroy_file]
+  before_action :check_edit, only: [:edit, :update, :destroy, :destroy_file]
 
   def index
     @posts = Post.ordering.full.page(params[:page])
@@ -46,6 +46,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy_file
+    @file = @post.files.find_by(params[:file_id])
+    @file.purge
+    redirect_to edit_post_path(@post), notice: 'Файл удалён'
+  end
+
   private
 
   def set_post
@@ -53,7 +59,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, files: [])
   end
 
   def check_edit

@@ -20,6 +20,7 @@ ru:
         user: Автор
         user_id: Автор
         updated_at: Последнее изменение
+        files: Файлы
       user:
         name: Имя
         login: Логин
@@ -41,7 +42,7 @@ ru:
       success: Комментарий изменен
     destroy:
       success: Комментарий удален
-      failure: Не удалось удалить комментарий      
+      failure: Не удалось удалить комментарий
   sessions:
     new:
       btn: Войти

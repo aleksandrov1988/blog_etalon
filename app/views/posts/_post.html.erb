@@ -4,6 +4,15 @@
   </h4>
   <div class="card-body">
     <%= simple_format post.body %>
+    <% if post.files.attached? %>
+    <ul>
+      <% post.files.each do |file| %>
+      <li>
+        <%= link_to file.blob.filename, file %>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
     <%= link_to t('posts.show.btn'), post, class: 'card-link' %>
     <% if post.edit_by?(@current_user) %>
         <%= link_to t('posts.edit.btn'), edit_post_path(post), class: 'card-link' %>

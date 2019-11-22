@@ -11,7 +11,22 @@
   <%= form.label :body %>
   <%= form.text_area :body, class: 'form-control' %>
 </div>
-
+<% if post.files.attached? %>
+<ul>
+  <% post.files.each do |file| %>
+  <li>
+    <%= file.blob.filename %>
+    <%= link_to destroy_file_post_path(@post, file_id: file.id) , method: :delete, data: {confirm: 'Вы уверены?'} do%>
+      <i class="fa fa-times text-danger"></i>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+<% end %>
+<div class="form-group">
+  <%= form.label :files %>
+  <%= form.file_field :files, multiple: true %>
+</div>
 <div class="actions">
   <%= form.submit nil, class: 'btn btn-primary' %>
 </div>
