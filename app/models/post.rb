@@ -7,6 +7,7 @@ class Post < ApplicationRecord
 
   validates :title, presence: true, length: {in: 3..140}
   validates :body, presence: true, length: {minimum: 3}
+  validate :check_user
 
   def edit_by?(current_user)
     user == current_user || current_user&.admin?
@@ -14,5 +15,13 @@ class Post < ApplicationRecord
 
   def human
     "#{self.class.model_name.human} №#{id}"
-  end  
+  end
+
+  private
+
+  def check_user
+    if new_record? && Post.where('user_id = ? and created_at > ?', user_id, 1.day.ago).count >= 5
+      errors.add(:base, 'Превышен лимит на мксимальное количество сообщений за сутки')
+    end
+  end
 end
