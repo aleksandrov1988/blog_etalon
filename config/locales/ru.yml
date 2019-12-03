@@ -26,6 +26,10 @@ ru:
         password: Пароль
         password_confirmation: Подтверждение пароля
         admin: Администратор
+        birthday: Дата рождения
+        male: Пол
+        birthcity: Родной город
+        hobby: Интересы
   comments:
     index:
       title: Комментарии
@@ -41,7 +45,7 @@ ru:
       success: Комментарий изменен
     destroy:
       success: Комментарий удален
-      failure: Не удалось удалить комментарий      
+      failure: Не удалось удалить комментарий
   sessions:
     new:
       btn: Войти

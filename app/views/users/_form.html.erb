@@ -20,6 +20,34 @@
     <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation, class: 'form-control' %>
   </div>
+  <% unless @user.new_record? %>
+    <div class="form-group">
+      <%= form.label :birthday %>
+      <%= form.date_field :birthday, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :male%>
+      <label>
+        <%=  form.radio_button :male, '1', checked: @user.male? %>
+        Мужской
+      </label>
+      <label>
+        <%=  form.radio_button :male, '0', checked: !@user.male? %>
+        Женский
+      </label>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :birthcity %>
+      <%= form.text_field :birthcity, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :hobby %>
+      <%= form.text_field :hobby, class: 'form-control' %>
+    </div>
+  <%end%>
 
   <div class="actions">
     <%= form.submit (t('.submit') if @user.new_record?), class: 'btn btn-primary' %>
