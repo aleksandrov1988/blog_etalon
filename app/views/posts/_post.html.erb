@@ -14,6 +14,7 @@
     <ul class="list-inline mb-0">
       <li class="list-inline-item text-muted"><%= l(post.created_at, format: :long) %></li>
       <li class="list-inline-item">
+        <%= image_tag post.user.avatar.variant(resize_to_limit: [32, 32]), alt: post.user.login %>
         <%= link_to post.user.name, post.user, class: 'text-muted' %>
       </li>
     </ul>
