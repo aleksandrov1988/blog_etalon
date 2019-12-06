@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_post, only: :create
   before_action :set_comment, only: [:edit, :update, :destroy]
   before_action :check_edit, only: [:edit, :update, :destroy]
+  before_action :check_create, only: :create
 
   def edit
   end
@@ -50,5 +51,9 @@ class CommentsController < ApplicationController
 
   def check_edit
     render_error unless @comment.edit_by?(@current_user)
+  end
+
+  def check_create
+    render_error('Комментарии запрещены') if @post.no_comment?
   end
 end

@@ -12,7 +12,13 @@
   </ol>
 </nav>
 <%= render @post  %>
+<% if @post.no_comment? %>
+  <div class="alert alert-info">
+    Комментарии запрещены автором
+  </div>
+<% else %>
 <%= render 'posts/comments', comments: @post.comments %>
+<% end %>
 <ul class="text-sm text-muted mt-4 list-unstyled">
   <li>
     <%= Post.human_attribute_name(:views_count) %>: <%= @post.views_count %>

@@ -11,8 +11,12 @@
   <%= form.label :body %>
   <%= form.text_area :body, class: 'form-control' %>
 </div>
+<div class="form-check">
+  <%= form.check_box :no_comment, class: 'form-check-input' %>
+  <%= form.label :no_comment, class: 'form-check-label' %>
+</div>
 
-<div class="actions">
+<div class="actions mt-4">
   <%= form.submit nil, class: 'btn btn-primary' %>
 </div>
 <% end %>
