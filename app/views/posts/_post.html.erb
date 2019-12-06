@@ -16,6 +16,9 @@
       <li class="list-inline-item">
         <%= link_to post.user.name, post.user, class: 'text-muted' %>
       </li>
+      <li class="list-inline-item">
+        <%= link_to 'История изменений', versions_post_path(post), class: 'text-muted' %>
+      </li>
     </ul>
   </div>
 </div>

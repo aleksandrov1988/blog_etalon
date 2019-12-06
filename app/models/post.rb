@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  has_paper_trail only: [:body]
   belongs_to :user
   has_many :comments, -> { ordering }, dependent: :destroy
 
@@ -14,5 +15,5 @@ class Post < ApplicationRecord
 
   def human
     "#{self.class.model_name.human} №#{id}"
-  end  
+  end
 end

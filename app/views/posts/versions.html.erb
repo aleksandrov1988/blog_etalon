@@ -1,0 +1,36 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to t('posts.index.btn'), posts_path %>
+    </li>
+    <li class="breadcrumb-item">
+      <%= link_to @post.user.name, @post.user %>
+    </li>
+    <li class="breadcrumb-item">
+      <%= link_to @post.human, @post %>
+    </li>
+    <li class="breadcrumb-item active">
+      История изменений
+    </li>
+  </ol>
+</nav>
+<h1>История изменений</h1>
+<% @versions.each do |version| %>
+<% changes = YAML.load(version.object_changes)['body'] %>
+<div class="card my-2">
+  <div class="card-header">
+    <%= l version.created_at, format: :long %>
+  </div>
+  <div class="card-body">
+    <div>
+      <b>Было:</b>
+      <%= changes[0] %>
+    </div>
+    <div>
+      <b>Стало:</b>
+      <%= changes[1] %>
+    </div>
+  </div>
+
+</div>
+<% end %>

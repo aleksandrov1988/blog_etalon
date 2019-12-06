@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :check_authentication, except: [:index, :show]
-  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy, :versions]
   before_action :check_edit, only: [:edit, :update, :destroy]
 
   def index
@@ -44,6 +44,10 @@ class PostsController < ApplicationController
       flash[:danger] = t('.failure')
       redirect_to @post
     end
+  end
+
+  def versions
+    @versions = @post.versions.reverse
   end
 
   private
